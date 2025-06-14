@@ -1,0 +1,47 @@
+#:kivy 2.1.0
+<CannonWidget>:
+    size_hint: None, None
+    size: 250, 100
+
+    canvas:
+        # Base nera (fissa)
+        Color:
+            rgba: 0.1, 0.1, 0.1, 1
+        Rectangle:
+            pos: self.x + 40, self.y
+            size: 160, 30
+
+        # Quadrati grigio scuro centrati ed equidistanti (fissi)
+        Color:
+            rgba: 0.3, 0.3, 0.3, 1
+        Rectangle:
+            pos: self.x + 52, self.y + 2.5
+            size: 25, 25
+        Rectangle:
+            pos: self.x + 89, self.y + 2.5
+            size: 25, 25
+        Rectangle:
+            pos: self.x + 126, self.y + 2.5
+            size: 25, 25
+        Rectangle:
+            pos: self.x + 163, self.y + 2.5
+            size: 25, 25
+
+        # Corpo rosso scuro più alto (altezza 55) (fisso)
+        Color:
+            rgba: 0.6, 0.0, 0.0, 1
+        Rectangle:
+            pos: self.x + 30, self.y + 30
+            size: 180, 55
+
+        # *Rotazione della canna*
+        PushMatrix
+        Rotate:
+            angle: self.angle
+            origin: (self.x + 190, self.y + 57.5)  # Centro della canna da ruotare (pos + metà altezza 47.5 + metà 20 = 57.5)
+        Color:
+            rgba: 0.4, 0.0, 0.0, 1
+        Rectangle:
+            pos: self.x + 190, self.y + 47.5
+            size: 70, 20
+        PopMatrix

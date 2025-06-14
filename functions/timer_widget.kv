@@ -1,0 +1,21 @@
+#:kivy 2.1.0
+
+<TimerWidget>:
+    orientation: 'horizontal'
+    size_hint: None, None
+    size: 150, 50  # aumenta dimensione visibile
+    canvas.before:
+        Color:
+            rgba: 0, 0, 0, 0.6  # sfondo semi-trasparente
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    Label:
+        text: f"Time: {int(root.current_time)}"
+        font_size: '22sp'
+        color: 1, 1, 1, 1
+        bold: True
+        size_hint: 1, 1
+        halign: 'center'
+        valign: 'middle'
+        text_size: self.size

@@ -1,0 +1,71 @@
+#:kivy 2.1.0
+<Level2Screen>:
+    FloatLayout:
+        Image:
+            source: 'resources/images/level2_back.jpg'
+            allow_stretch: True
+            keep_ratio: False
+            size_hint: 1, 1
+            pos: 0, 0
+
+        Image:
+            id: snake
+            source: 'resources/images/snake.png'
+            size_hint: None, None
+            size: 350, 350
+            pos: root.width * 0.75, root.height * 0.2  # place near top-right
+
+
+        RockGroup:
+            size_hint: None, None
+            size: 200, 200
+            pos: root.width * 0.38, root.height * 0.17
+
+        RockGroup:
+            size_hint: None, None
+            size: 200, 200
+            pos: root.width * 0.28, root.height * 0.47
+ 
+        RockGroup:
+            size_hint: None, None
+            size: 200, 200
+            pos: root.width * 0.48, root.height * 0.39
+
+        RockGroup:
+            size_hint: None, None
+            size: 200, 200
+            pos: root.width * 0.67, root.height * 0.47
+        
+        ElastonioBar:
+            size_hint: None, None
+            size: 250, 120
+            pos: root.width * 0.19, root.height * 0.67
+        
+        ElastonioBar:
+            size_hint: None, None
+            size: 250, 120
+            pos: root.width * 0.55, root.height * 0.67
+        
+        ElastonioBar:
+            size_hint: None, None
+            size: 250, 120
+            pos: root.width * 0.55, root.height * 0.20
+
+        ProjectileSettingsBar:
+            size_hint: None, None
+            size: 250, 120
+            pos_hint: {"x": 0, "top": 1}
+
+        Button:
+            size_hint: None, None
+            size: 75, 75
+            pos_hint: {"top": 0.97, "right": 0.97}
+            background_normal: "resources/images/help.jpeg"
+            background_down: "resources/images/help.jpeg"
+            on_release: app.root.get_screen("game").on_help()
+
+        TimerWidget:
+            id: timer_widget
+            size_hint: None, None
+            size: 150, 50
+            pos_hint: {"right": 0.98, "y": 0.02}

@@ -1,0 +1,59 @@
+#:kivy 2.1.0
+
+<Level3Screen>:
+    FloatLayout:
+        Image:
+            source: 'resources/images/level3_back.jpg'
+            allow_stretch: True
+            keep_ratio: False
+            size_hint: 1, 1
+            pos: 0, 0
+
+        Image:
+            id: wolf
+            source: 'resources/images/wolf.png'
+            size_hint: None, None
+            size: 350, 350
+            pos: root.width * 0.63, root.height * 0.015  # place near top-right
+
+        Button:
+            size_hint: None, None
+            size: 75, 75
+            pos_hint: {"top": 0.97, "right": 0.97}
+            background_normal: "resources/images/help.jpeg"
+            background_down: "resources/images/help.jpeg"
+            on_release: app.root.get_screen("game").on_help()
+
+        PerpetioGroup:
+            size_hint: None, None
+            size: 200, 200
+            pos: root.width * 0.25, root.height * 0.7
+        
+        PerpetioGroup:
+            size_hint: None, None
+            size: 200, 200
+            pos: root.width * 0.60, root.height * 0.42
+
+        Mirror:
+            size_hint: None, None
+            size: 250, 120
+            pos: root.width * 0.16, root.height * 0.40
+            angle: 85
+        
+        Mirror:
+            size_hint: None, None
+            size: 250, 120
+            pos: root.width * 0.55, root.height * 0.67
+            angle: 130
+        
+        Mirror:
+            size_hint: None, None
+            size: 250, 120
+            pos: root.width * 0.40, root.height * 0.10
+            angle: 50
+
+        TimerWidget:
+            id: timer_widget
+            size_hint: None, None
+            size: 150, 50
+            pos_hint: {"right": 0.98, "y": 0.02}

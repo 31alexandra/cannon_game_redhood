@@ -1,0 +1,61 @@
+#:kivy 2.1.0
+
+
+<Congratulations>:
+    size_hint: 0.6, 0.4
+    title: "Level Complete"
+    auto_dismiss: False
+
+    BoxLayout:  
+        orientation: "vertical"
+        padding: dp(30)
+        spacing: dp(20)
+        canvas.before:
+            Color:
+                rgba: 0.8, 0.1, 0.1, 0.1
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [20]
+
+        Label:
+            text: "Congratulations!"
+            font_size: '24sp'
+            bold: True
+            color: 0.2, 0.1, 0.1, 1
+            halign: 'center'
+            valign: 'middle'
+            text_size: self.size
+
+        Label:
+            text: "You completed this level.\nReady for the next one?"
+            font_size: '16sp'
+            color: 0.1, 0.1, 0.1, 1
+            halign: 'center'
+            valign: 'middle'
+            text_size: self.size
+
+        Button:
+            text: "Next Level"
+            font_size: '18sp'
+            bold: True
+            size_hint: None, None
+            size: dp(200), dp(50)
+            background_normal: ''
+            background_color: 1, 0.7, 0.1, 1
+            color: 1, 1, 1, 1
+            pos_hint: {'center_x': 0.5}
+            on_release: root.on_next_level()
+
+        Button:
+            text: 'Hall of Fame'
+            font_size: '18sp'
+            bold: True
+            size_hint: None, None
+            size: dp(140), dp(50)
+            background_normal: ''
+            background_color: 0.1, 0.4, 0.8, 1
+            color: 1, 1, 1, 1
+            pos_hint: {'center_x': 0.5}
+            on_release: root.on_hall_of_fame()
+            

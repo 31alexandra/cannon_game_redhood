@@ -1,0 +1,58 @@
+#:kivy 2.1.0
+<TimeUpPopup>:
+    size_hint: 0.6, 0.4
+    title: "Time's Up!"
+    auto_dismiss: False
+
+    BoxLayout:
+        orientation: "vertical"
+        padding: dp(30)
+        spacing: dp(20)
+        canvas.before:
+            Color:
+                rgba: 0.8, 0.1, 0.1, 0.1
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [20]
+
+        Label:
+            text: '[b][color=ff0000]Time is over![/color][/b]'
+            markup: True
+            font_size: '24sp'
+            bold: True
+            color: 0.2, 0.1, 0.1, 1
+            halign: 'center'
+            valign: 'middle'
+            text_size: self.size
+
+        BoxLayout: 
+            size_hint_y: None
+            height: dp(50)
+            spacing: dp(20)
+
+            # Queste due proprietà centrano il BoxLayout orizzontalmente
+            size_hint_x: None
+            width: dp(140)*2 + dp(20)  # larghezza bottoni + spacing
+            pos_hint: {'center_x': 0.5}
+            Button:
+                text: 'Replay'
+                font_size: '18sp'
+                bold: True
+                size_hint: None, None
+                size: dp(140), dp(50)
+                background_normal: ''
+                background_color: 1, 0.7, 0.1, 1
+                color: 1, 1, 1, 1
+                on_release: root.on_replay()
+
+            Button:
+                text: 'Main Menu'
+                font_size: '18sp'
+                bold: True
+                size_hint: None, None
+                size: dp(140), dp(50)
+                background_normal: ''
+                background_color: 0.8, 0.1, 0.1, 1
+                color: 1, 1, 1, 1
+                on_release: app.root.current = 'game'

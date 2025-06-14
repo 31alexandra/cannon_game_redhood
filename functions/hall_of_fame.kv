@@ -1,0 +1,50 @@
+#:kivy 2.1.0
+
+<HallOfFamePopup>:
+    size_hint: 0.6, 0.6
+    title: "Hall of Fame"
+    auto_dismiss: True
+
+    BoxLayout:
+        orientation: "vertical"
+        padding: dp(30)
+        spacing: dp(20)
+        canvas.before:
+            Color:
+                rgba: 0.8, 0.1, 0.1, 0.1
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [20]
+
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
+
+            BoxLayout:
+                id: scores_box
+                orientation: "vertical"
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: dp(10)
+
+        BoxLayout: 
+            size_hint_y: None
+            height: dp(50)
+            spacing: dp(20)
+
+            # centratura orizzontale del BoxLayout dei bottoni
+            size_hint_x: None
+            width: dp(140)*1  # larghezza singolo bottone, puoi aggiungere più se vuoi
+            pos_hint: {'center_x': 0.5}
+
+            Button:
+                text: 'Close'
+                font_size: '18sp'
+                bold: True
+                size_hint: None, None
+                size: dp(140), dp(50)
+                background_normal: ''
+                background_color: 0.8, 0.1, 0.1, 1
+                color: 1, 1, 1, 1
+                on_release: root.dismiss()
